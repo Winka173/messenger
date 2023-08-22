@@ -2,6 +2,7 @@
 import React, { useState, useCallback } from "react";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import Input from "@/app/components/inputs/Input";
+import Button from "@/app/components/inputs/Button";
 
 type Variant = "LOGIN" | "REGISTER";
 
@@ -51,7 +52,26 @@ const AuthForm = () => {
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-          <Input label="Email" register={register} id="email" errors={errors} />
+          {variant === "REGISTER" && (
+            <Input id="name" label="Name" register={register} errors={errors} />
+          )}
+          <Input
+            id="email"
+            label="Email address"
+            type="email"
+            register={register}
+            errors={errors}
+          />
+          <Input
+            id="password"
+            label="Password"
+            type="password"
+            register={register}
+            errors={errors}
+          />
+          <div>
+            <Button>Test</Button>
+          </div>
         </form>
       </div>
     </div>
