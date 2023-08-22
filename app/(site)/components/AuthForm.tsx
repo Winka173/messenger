@@ -4,7 +4,7 @@ import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import Input from "@/app/components/inputs/Input";
 import Button from "@/app/components/inputs/Button";
 import AuthSocialButton from "./AuthSocialButton";
-import { BsGitHub } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
 
 type Variant = "LOGIN" | "REGISTER";
 
@@ -91,7 +91,7 @@ const AuthForm = () => {
 
           <div className="mt-6 glex gap-2">
             <AuthSocialButton
-              icon={BsGitHub}
+              icon={BsGithub}
               onClick={() => socialAction("github")}
             />
           </div>
