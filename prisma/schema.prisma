@@ -9,3 +9,25 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  email String? @unique
+  image String?
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+  accounts Account[]
+}
+
+model Account {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  refresh_token String? @db.String
+  access_token String? @db.String
+  exprires_at Int?
+  token_type String?
+  scope String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade )
+}
