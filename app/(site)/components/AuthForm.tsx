@@ -68,7 +68,18 @@ const AuthForm = () => {
   const socialAction = (action: string) => {
     setIsLoading(true);
 
-    // call social login
+    signIn(action, {
+      redirect: false,
+    })
+      .then((res) => {
+        if (res?.error) {
+          toast.error("Error login in!");
+        }
+        if (res?.ok && !res?.error) {
+          toast.success("Logged in!");
+        }
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
