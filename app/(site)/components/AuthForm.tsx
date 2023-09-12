@@ -51,6 +51,7 @@ const AuthForm = () => {
       axios
         .post("/api/register", data)
         .catch(() => toast.error("Check your email and password again"))
+        .then(() => signIn("credentials", data))
         .finally(() => {
           toast.success("Account successfully create!");
           setIsLoading(false);
@@ -68,6 +69,7 @@ const AuthForm = () => {
           }
           if (res?.ok && !res?.error) {
             toast.success("Logged in!");
+            router.push("/users");
           }
         })
         .finally(() => setIsLoading(false));
