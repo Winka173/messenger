@@ -2,7 +2,7 @@
 import React from "react";
 import clsx from "clsx";
 
-interface ButtonProps {
+type ButtonProps = {
   type?: "button" | "submit" | "reset" | undefined;
   fullWidth?: boolean;
   children?: React.ReactNode;
@@ -10,7 +10,7 @@ interface ButtonProps {
   secondary?: boolean;
   danger?: boolean;
   disabled?: boolean;
-}
+};
 
 const Button: React.FC<ButtonProps> = ({
   type,
